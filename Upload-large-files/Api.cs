@@ -16,3 +16,7 @@ app.MapPost("/upload/chunk", (ChunkMetadata metadata) => {
 app.MapPost("/upload/finalize", (FinalizeMetadata metadata) => {
     return Results.Ok(new { message = "Upload finalized" });
 });
+
+app.MapGet("/upload/missing-chunks/{uploadId}", (Guid uploadId ) => {
+    return Results.Ok(new { missingChunks = new List<missingChunks>() });
+});
